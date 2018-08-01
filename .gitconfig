@@ -1,0 +1,5 @@
+[user]
+	name = Matthew Kousoulas
+	email = shaman.kous@gmail.com
+[core]
+	editor = nvim
