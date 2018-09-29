@@ -174,9 +174,9 @@ get_signal () {
 	# fi
 }
 add-zsh-hook precmd get_signal
-
-PS1="%(1j.%F{magenta}.%F{green})%j%f%(!.%F{yellow}.%F{blue})%B%#%b%f "
-RPS1="%(!.%F{yellow}.%F{blue})%B-%b%f%_%(0?.%F{green}.%F{red})%v%f" #"%?%(1v. .)%v%f"
+# ❯❭ block dingbats ∘
+PS1="%B%(1j.%F{magenta}.%F{green})%j%f%(!.%F{yellow}.%F{blue})%b〉%f"
+RPS1="%(!.%F{yellow}.%F{blue})〈%B%f%_%(0?.%F{green}.%F{red})%v%f%b" #"%?%(1v. .)%v%f"
 # }}}
 
 # FINAL INIT {{{
@@ -222,6 +222,7 @@ bindkey "\e\e" sudo-command-line
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/tmuxinator.zsh
 neofetch
 # }}}
 
