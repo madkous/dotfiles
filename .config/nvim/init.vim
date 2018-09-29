@@ -141,6 +141,12 @@ let g:ledger_fold_blanks = 0
 " endfunction
 " }}}
 
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
+
 if exists('*HexHighlight()')
   nnoremap <leader>H :call HexHighlight()<Return>
 endif
@@ -178,6 +184,7 @@ set conceallevel=0 concealcursor=nvc
 let g:tex_conceal="agdms"
 set nojoinspaces
 set gdefault
+set updatetime=100
 " }}}
 
 " status line {{{
@@ -205,6 +212,8 @@ augroup filetype
 	autocmd Filetype text			:nnoremap spell wrap
 	" autocmd FileType ocaml setlocal commentstring=#\ %s #
 	autocmd Filetype rust			:let g:rust_recommended_style = 0
+	autocmd Filetype rust			:setlocal tabstop=4 shiftwidth=4 softtabstop=4 spell
+	autocmd BufRead,BufNewFile /home/kous/work/umbc/18-fall/math490/answer-key/* :nnoremap <buffer> <leader>p :w<cr>:!pdflatex -output-directory=output main.tex<cr>
 augroup END
 " }}}
 
