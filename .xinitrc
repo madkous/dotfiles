@@ -36,6 +36,7 @@ fi
 
 statusbar &
 xbindkeys
+xflux -z 21227
 unclutter -idle 2 -jitter 15 &
 setxkbmap -option caps:escape &
 
