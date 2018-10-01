@@ -4,115 +4,8 @@ filetype off                  " required
 set termguicolors
 colorscheme antares
 
-" Vundle {{{
-" Vundle initialisation {{{
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" }}}
+execute pathogen#infect()
 
-" Installed Plugins {{{
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-" quick manipulation of quotes and brackets
-Plugin 'tpope/vim-surround'
-" repeat support for plugins
-Plugin 'tpope/vim-repeat'
-" sugar for unix commands
-Plugin 'tpope/vim-eunuch'
-" quick commenting
-Plugin 'tomtom/tcomment_vim'
-" increment dates
-Plugin 'tpope/vim-speeddating'
-" directory browsing stuff
-Plugin 'tpope/vim-vinegar'
-" git wrapper
-Plugin 'tpope/vim-fugitive'
-" show git changes
-Plugin 'airblade/vim-gitgutter'
-" slime for vim
-" Plugin 'kovisoft/slimv'
-" Plugin 'gokcehan/vim-opex'
-Plugin 'wlangstroth/vim-racket'
-" Gentoo and portage syntax highlighting
-Plugin 'gentoo/gentoo-syntax'
-" async make replacement
-Plugin 'neomake/neomake'
-" async completions
-Plugin 'Shougo/deoplete.nvim'
-" replace hex code with colour
-Plugin 'hexHighlight.vim'
-" latex commands
-Plugin 'lervag/vimtex'
-" gdb integration
-Plugin 'vim-scripts/gdbmgr'
-" c ide
-Plugin 'vim-scripts/c.vim'
-" rust ide
-Plugin 'rust-lang/rust.vim'
-" scratch buffer
-Plugin 'mtth/scratch.vim'
-" fold optimisations
-Plugin 'Konfekt/FastFold'
-" character column alignment
-Plugin 'godlygeek/tabular'
-" standard ml
-Plugin 'cypok/vim-sml'
-" ledger
-Plugin 'ledger/vim-ledger'
-" ranger
-Plugin 'airodactyl/neovim-ranger'
-" miniyank
-" Plugin 'bfredl/nvim-miniyank'
-Plugin 'tmux-plugins/vim-tmux'
-" add diff option to recovery
-Plugin 'chrisbra/Recover.vim'
-" color utility
-Plugin 'zefei/vim-colortuner'
-" needed for fetching schemes online.
-Plugin 'mattn/webapi-vim'
-" coq syntax and indents
-Plugin 'jvoorhis/coq.vim'
-
-" Unused {{{
-" Plugin 'adelarsq/Vim-Autoclose'
-" Plugin 'guns/vim-sexp'
-" Plugin 'Yggdroot/indentLine'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'christoomey/vim-tmux-navigator'
-" Plugin 'reedes/vim-thematic'
-" Plugin 'eagletmt/ghcmod-vim'
-" Plugin 'minibufexpl.vim'
-" syntax highlighting and indentation
-" Plugin 'neovimhaskell/haskell-vim'
-" type checking, type information
-" Plugin 'bitc/vim-hdevtools'
-" haskell completions
-" Plugin 'eagletmt/neco-ghc'
-" vim calendar
-" Plugin 'itchyny/calendar.vim'
-" }}}
-
-" Vundle finish {{{
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-" }}}
-
-" Plugin settings {{{
 let g:miniBufExplMapWindowNavVim = 1
 
 let g:vimtex_view_method = 'mupdf'
@@ -125,10 +18,6 @@ let g:scratch_height = 40
 let g:ledger_maxwidth = 80
 let g:ledger_fillstring = "- -"
 let g:ledger_fold_blanks = 0
-
-" end of plugin settings }}}
-" }}}
-" }}}
 
 " custom functions {{{
 " syntax highlighting {{{
