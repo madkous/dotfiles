@@ -220,6 +220,7 @@ bindkey "\e\e" sudo-command-line
 # bindkey "${terminfo[kdch1]}" delete-char
 # bindkey "${terminfo[kich1]}" overwrite-mode
 
+source ~/.zsh/personal.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/tmuxinator.zsh
