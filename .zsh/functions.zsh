@@ -34,3 +34,12 @@ up() {
 		cd $CDSTR
 	fi
 }
+
+wiki() {
+	if [[ "$#" < 1 ]] ; then
+		links "https://en.wikipedia.org"
+	else
+		links "https://en.wikipedia.org/wiki/$1"
+	fi
+}
+

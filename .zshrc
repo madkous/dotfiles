@@ -60,9 +60,9 @@ get_signal () {
 	# fi
 }
 add-zsh-hook precmd get_signal
-# ❯❭ block dingbats ∘
-PS1="%B%(1j.%F{magenta}.%F{green})%j%f%(!.%F{yellow}.%F{blue})%b〉%f"
-RPS1="%(!.%F{yellow}.%F{blue})〈%B%f%_%(0?.%F{green}.%F{red})%v%f%b" #"%?%(1v. .)%v%f"
+# ⟨⟩⟪⟫
+PS1="%B%(1j.%F{magenta}.%F{green})%j%f%(!.%F{yellow}.%F{blue})%b%(1j.⟫.⟩) %f"
+RPS1="%(!.%F{yellow}.%F{blue}) %(0?.⟨.⟪)%B%f%_%(0?.%F{green}.%F{red})%v%f%b" #"%?%(1v. .)%v%f"
 
 # FINAL INIT
 function sudo-command-line() {
@@ -105,11 +105,11 @@ bindkey "\e\e" sudo-command-line
 # bindkey "${terminfo[kich1]}" overwrite-mode
 
 source ~/.zsh/personal.zsh
+source ~/.zsh/git-prompt.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/tmuxinator.zsh
 neofetch
 # }}}
 
