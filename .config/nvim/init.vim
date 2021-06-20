@@ -1,41 +1,8 @@
 " nvim configuration for limbo
 " 2017/11/18
-filetype off                  " required
 set termguicolors
 colorscheme antares
 
-execute pathogen#infect()
-
-" plugin settings
-let g:miniBufExplMapWindowNavVim = 1
-
-let g:vimtex_view_method = 'mupdf'
-let g:vimtex_fold_enabled = 1
-
-let g:scratch_insert_autohide = 0
-let g:scratch_horizontal = 0
-let g:scratch_height = 40
-
-let g:ledger_maxwidth = 80
-let g:ledger_fillstring = "- -"
-let g:ledger_fold_blanks = 0
-
-let g:slime_target = "tmux"
-let g:slime_paste_file = "$HOME/.slime_paste"
-
-" custom functions
-if exists('&signcolumn')  " Vim 7.4.2201
-	set signcolumn=yes
-else
-	let g:gitgutter_sign_column_always = 1
-endif
-
-" let g:gitgutter_enabled = 0
-" let g:gitgutter_realtime = 0
-" let g:gitgutter_sign_modified = '#'
-"
-" nnoremap <leader>g :GitGutterToggle<CR>
-"
 " misc settings
 set number relativenumber
 set showcmd ignorecase smartcase hidden
@@ -139,40 +106,22 @@ augroup status
 	autocmd VimEnter,WinEnter,BufWinEnter * call <SID>RefreshStatus()
 augroup END
 
-augroup projects
-	autocmd BufRead,BufNewFile /home/kous/work/umbc/18-fall/math490/answer-key/* :nnoremap <buffer> <M-p> :w<cr>:!pdflatex -output-directory=output /home/kous/work/umbc/18-fall/math490/answer-key/main.tex<cr>
-augroup END
-
 " autocmds
 augroup filetype
-	autocmd!
+	au!
 	" Remove all vimrc autocommands
-	autocmd BufRead,BufNewFile *.h		:setlocal filetype=c
-	autocmd BufRead,BufNewFile *.ode	:setlocal filetype=xppaut
-	autocmd BufRead,BufNewFile *.jl		:setlocal filetype=julia
-	autocmd Filetype c			:setlocal foldmethod=syntax
-	autocmd Filetype c			:setlocal cinoptions=:0
-	autocmd Filetype tex			:setlocal tabstop=4 shiftwidth=4 softtabstop=4 spell
-	autocmd Filetype tex			:nnoremap <buffer> <leader>p :w<cr>:!pdflatex -output-directory=output %<cr>
-	autocmd Filetype vim,zsh,conf,text,make	:setlocal foldmethod=marker
-	" autocmd Filetype ledger			:nnoremap <buffer> <leader>a :AlignLedger<cr>
-	" autocmd Filetype ledger			:nnoremap <buffer> <leader>A ggVG:AlignLedger<cr>
-	autocmd Filetype text			:nnoremap spell wrap
-	" autocmd FileType ocaml setlocal commentstring=#\ %s #
-	autocmd Filetype rust			:let g:rust_recommended_style = 0
-	autocmd Filetype rust			:setlocal tabstop=4 shiftwidth=4 softtabstop=4 spell
+	au BufRead,BufNewFile *.h		:setlocal filetype=c
 augroup END
 
-func! WordProcessor()
-	" movement changes
-	noremap j gj
-	noremap k gk
-	" formatting options
-	setlocal wrap
-	setlocal linebreak
-	setlocal textwidth=0 colorcolumn=
-	setlocal spell
-	setlocal thesaurus+=$HOME/.config/nvim/thesauri/mthesaur.txt
-	setlocal complete+=s
-endfu
-com! WP call WordProcessor()
+" vim -b: edit binary using xxd-format
+augroup binary
+	au!
+	au BufReadPre   *.bin let &bin=1
+	au BufReadPost  *.bin if &bin | %!xxd
+	au BufReadPost  *.bin set ft=xxd | endif
+	au BufWritePre  *.bin if &bin | %!xxd -r
+	au BufWritePre  *.bin endif
+	au BufWritePost *.bin if &bin | %!xxd
+	au BufWritePost *.bin set nomod | endif
+augroup END
+
