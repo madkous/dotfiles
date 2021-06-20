@@ -25,8 +25,6 @@ typeset -U path
 path=(~/.local/bin $path .)
 
 export EDITOR=/usr/bin/nvim
-export MANPAGER="/usr/bin/nvim -c 'set ft=man' -"
-export PAGER="/usr/bin/nvimpager"
 
 # OPTIONS
 # DIRECTORIES
@@ -104,12 +102,9 @@ bindkey "\e\e" sudo-command-line
 # bindkey "${terminfo[kdch1]}" delete-char
 # bindkey "${terminfo[kich1]}" overwrite-mode
 
-source ~/.zsh/personal.zsh
-source ~/.zsh/git-prompt.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-neofetch
 # }}}
 

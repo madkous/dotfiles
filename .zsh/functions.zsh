@@ -1,15 +1,6 @@
 # FUNCTIONS
 du-func() { \du -achd 1 $@ | sort -h }
 
-todo() {
-	if [[ "$#" -eq 1 ]] ; then
-		sed -i "$1d" ~/.todo
-	elif [[ "$#" -gt 1 ]] ; then
-		echo "$@" >> ~/.todo
-	fi
-	cat -n ~/.todo
-}
-
 mkcd() {
 	mkdir -p "$1" && cd "$_";
 }
@@ -32,14 +23,6 @@ up() {
 			CDSTR="../$CDSTR"
 		done
 		cd $CDSTR
-	fi
-}
-
-wiki() {
-	if [[ "$#" < 1 ]] ; then
-		links "https://en.wikipedia.org"
-	else
-		links "https://en.wikipedia.org/wiki/$1"
 	fi
 }
 
