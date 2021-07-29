@@ -1,5 +1,5 @@
 # FUNCTIONS
-du-func() { \du -achd 1 $@ | sort -h }
+du-func() { \du -achd 1 $@ | sort }
 
 mkcd() {
 	mkdir -p "$1" && cd "$_";

@@ -3,3 +3,5 @@
 	email = shaman.kous@gmail.com
 [core]
 	editor = nvim
+[pull]
+	rebase = false
